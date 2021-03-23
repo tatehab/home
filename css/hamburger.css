@@ -1,0 +1,73 @@
+.hamburger-menu div {
+  width: 35px;
+  height: 5px;
+  background-color: black;
+  margin-right:0;
+  margin-left: auto;
+  margin-top:6px;
+  transition: .5s;
+  /* アニメーションの時間を0.5秒に指定 */
+  transform:rotateX(0deg);
+  /* X軸(縦)の回転角度を指定 */
+}
+.hamburger-menu:hover div {
+  opacity:0.6;
+  /* 透明度を指定 */
+  transform:rotateX(180deg);
+  /* X軸(縦)の回転角度を指定 */
+}
+.hamburger-menu + .sidenavs:target {
+  overflow-x: visible;
+  /* ボックスからはみ出る箇所をそのまま表示 */
+  width: 100%;
+  display:block;
+}
+.sidenavs:target {
+  overflow-x: hidden;
+  /* ボックスからはみ出る箇所を隠す */
+  width: 0;
+}
+/* ハンバーガーメニュー表示時 */
+.sidenavs {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  /* 画像の配置を指定 */
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: black;
+  overflow-x: hidden;
+  /* 横スクロールを無効にする */
+  padding-top: 60px;
+  transition: 0.5s;
+  /* アニメーションの時間を0.5秒に指定 */
+}
+/* ハンバーガーメニュー表示時のリンク */
+.sidenavs a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+  /* アニメーションの時間を0.3秒に指定 */
+  font-weight:bold;
+  transform:rotate(0deg) translate(0px,0px) skew(0deg,0deg);
+  /* Z軸(平面)の回転角度とXY軸の移動距離、傾斜角度を指定 */
+}
+/* マウスオーバー後のリンク */
+.sidenavs a:hover {
+  color: white;
+  transform:rotate(-3deg) translate(3px,3px) skew(3deg,3deg);
+  /* Z軸(平面)の回転角度とXY軸の移動距離、傾斜角度を指定 */
+}
+/* クローズボタン */
+.sidenavs .close-btn {
+  position: absolute;
+  /* 親要素との絶対位置を指定 */
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
