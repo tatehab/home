@@ -1,0 +1,118 @@
+.card{
+    width: 288px;
+    height: auto;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 10px auto;
+    box-sizing: border-box;
+    
+  }
+
+  
+.card__imgframe{
+    width: 100%;
+    height: auto;
+    padding-top: 56.25%;
+    background: #bbb;
+    box-sizing: border-box;
+  }
+  
+  .card__textbox{
+    width: 100%;
+    height: auto;
+    padding: 20px 18px;
+    background: #fff;
+    box-sizing: border-box;
+  }
+  
+  .card__textbox > * + *{
+    margin-top: 10px;
+  }
+  
+  .card__titletext{
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 125%;
+  }
+  
+  .card__overviewtext{
+    font-size: 12px;
+    line-height: 150%;
+  }
+
+/* 親要素(コンテナ) */
+.flex-container {
+	display: flex;
+	flex-wrap: wrap;
+    align-content: space-around;
+}
+/* 子要素(アイテム) */
+.flex-item {
+	margin: 10px auto;
+	padding: 5px 10px;
+	box-sizing: border-box;
+	background-color: #343434;
+	color: #fff;
+}
+
+/*ヘッダー*/
+#header{
+    width:100%;
+    text-align: center;
+    margin-right:0;
+    position:fixed;
+    top:0;
+    top: 0;
+    right: 25px;
+    margin-left: 50px;
+}
+.header_height{
+    height: 50px;
+    display:block;
+}
+
+body{
+    margin:0px;
+}
+
+/**/
+#top{
+    display:block;
+    text-align: center;
+    background-size: cover;
+
+
+}
+.top_img{
+    height: 100vh;
+    display:block;
+    background-size: cover;
+}
+.image{
+  position: relative;
+}
+
+#top p{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+  font-size: 2em;
+}
+
+#top img{
+  width: 100%;
+}
+
+#footer{
+    width:auto;
+    height: auto;
+    padding: 5px;
+    text-align: right;
+    background-color: #343434;
+}
+#footer p{
+    color:rgba(255, 255, 255, 0.692);
+}
