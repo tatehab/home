@@ -2,30 +2,78 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>タイトルです</title>
+    <title>Tateha Lab</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes" />
     <link href="css/card.css" rel="stylesheet" type="text/css" media="all">
     <link href="css/hamburger.css" rel="stylesheet" type="text/css" media="all">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
     <script>
       $(function(){
         ScrollReveal().reveal('.card');
       });
       
+
+    $(function() {
+      var top = $('#top').offset().top; //初期値を取得 
+      var bottom = $('#main').offset().top; 
+    $(window).scroll(function() {
+      var value = $(this).scrollTop(); //スクロールの値を取得
+      $('#scrollValue').text(value);
+    $('#particle').css('top', top - value*0.2);
+    //$('#over_image').css('opacity', Math.min(Math.max((value - 100) * 0.002, 0 ), 0.8));
+    $('#over_image').css('opacity', Math.min(Math.max((value)/((bottom - top)*0.5), 0 ), 0.8));
+    
+    });
+    });
+
+
+    //トップ画像切り替え
+    let time = 0;
+    //ここにpathを乗っける
+    let top_img_array = ["PXL_20210320_050615462.PORTRAIT.jpg","PXL_20210411_041659430.jpg", "TOP.JPG"];
+    //切り替え時のアニメーション
+    let CHANGE_SPAN_ANIM = 800
+    //切り替えスパン
+    let CHANGE_SPAN = 5000
+    setInterval(function() {
+      $("#particle2").animate({
+          'background-color': "rgba(255,255,255,1)"
+      }, CHANGE_SPAN_ANIM, function(){
+        $('#particle').css('background-image', 'url(img/top_img/' + top_img_array[time%top_img_array.length] + ')');
+        $("#particle2").animate({
+          'background-color': "rgba(255,255,255,0)"
+      }, CHANGE_SPAN_ANIM);
+      });
+        time++;
+      }, CHANGE_SPAN);
+
+
     </script>
 
 
 
 </head>
 <body>
+  
 <div id="top">
-    <div class="image">
-        <img class="top_img" src="img/top.JPG" alt="" border="0">
-        <p>画像に重ねる文字</p>
+    <div class="image display_size">
+        <!--
+        <img id="particle"  class="top_img particle2" src="img/top_img/top.JPG" alt="" border="0">-->
+        <div id="particle"  class="top_img" alt="" border="0"></div>
+        <div id="particle2"  class="top_img2" alt="" border="0"></div>
+        <img id="over_image" class="display_size" style="opacity: 0;" src="img/top_img/top_tone.jpg" alt="" border="0">
+
+        <p style="font-size: 2em;">
+          <font style="color:red">Tateha</font> LA<font style="color:red">B</font><br>
+          
+          <font style="font-size: 0.5em;">たてはのブログとポートフォリオ</font>
+        </p>
     </div> 
 </div>
 <div id="header">
+  <span hidden id="scrollValue"></span>
     <div>
         <a href="#sidemenu" class="hamburger-menu">
           <div></div>
@@ -34,105 +82,240 @@
         </a>
         <header id="sidemenu" class="sidenavs">
         <a href="#" class="close-btn">&times;</a>
-          <a href="#">About</a>
-          <a href="#">Services</a>
-          <a href="#">Clients</a>
-          <a href="#">Contact</a>
+          <a href="#">Top</a>
+          <a href="#about">about</a>
+          <a href="#illustration">illustration</a>
+          <a href="#download">download</a>
+          <a href="#other">other</a>
+          <a href="#contact">contact</a>
         </header>
       </div>
 </div>
 
-
+<center style="background-color: white;">
 <div id="main">
-    <div class="flex-container">
-        <div class="card">
-            <div class="card__imgframe"></div>
-            <div class="card__textbox">
-              <div class="card__titletext">
-                タイトルがはいります。タイトルがはいります。
-              </div>
-              <div class="card__overviewtext">
-                概要がはいります。概要がはいります。概要がはいります。概要がはいります。
-              </div>
-            </div>
-        </div>
+  
+  <div class="flex-container">
 
-        <div class="card">
-            <div class="card__imgframe"></div>
-            <div class="card__textbox">
-              <div class="card__titletext">
-                タイトルがはいります。タイトルがはいります。
-              </div>
-              <div class="card__overviewtext">
-                概要がはいります。概要がはいります。概要がはいります。概要がはいります。
-              </div>
-            </div>
-        </div>
 
-        <div class="card">
-            <div class="card__imgframe"></div>
-            <div class="card__textbox">
-              <div class="card__titletext">
-                タイトルがはいります。タイトルがはいります。
-              </div>
-              <div class="card__overviewtext">
-                概要がはいります。概要がはいります。概要がはいります。概要がはいります。
-              </div>
-            </div>
+    <div class="card">
+      <a href="#about">
+        <div class="card__imgframe"></div>
+        <div class="card__textbox">
+          <div class="card__titletext">
+            about
+          </div>
+          <div class="card__overviewtext">
+            tatehab(たては)について
+          </div>
         </div>
+      </a>
+    </div>
 
-        <div class="card">
-            <div class="card__imgframe"></div>
-            <div class="card__textbox">
-              <div class="card__titletext">
-                タイトルがはいります。タイトルがはいります。
-              </div>
-              <div class="card__overviewtext">
-                概要がはいります。概要がはいります。概要がはいります。概要がはいります。
-              </div>
-            </div>
+      <div class="card">
+        <a href="#illustration">
+          <div class="card__imgframe"
+          style="background-image: url(img/top_img/PXL_20210411_041659430.jpg) ">
         </div>
-
-        <div class="card">
-            <div class="card__imgframe"></div>
-            <div class="card__textbox">
-              <div class="card__titletext">
-                タイトルがはいります。タイトルがはいります。
-              </div>
-              <div class="card__overviewtext">
-                概要がはいります。概要がはいります。概要がはいります。概要がはいります。
-              </div>
+          <div class="card__textbox">
+            <div class="card__titletext">
+              illustration
             </div>
+            <div class="card__overviewtext">
+              趣味でイラストを描いています
+            </div>
+          </div>
+        </a>
+      </div>
+
+      
+      <div class="card">
+        <a href="#download">
+          <div class="card__imgframe"
+          style="background-image: url(img/top_img/PXL_20210411_041659430.jpg) "></div>
+          <div class="card__textbox">
+            <div class="card__titletext">
+              download
+            </div>
+            <div class="card__overviewtext">
+              公開しているソフト・アプリ
+            </div>
+          </div>
+        </a>
+      </div>
+      
+      <div class="card">
+        <a href="#other">
+          <div class="card__imgframe"></div>
+          <div class="card__textbox">
+            <div class="card__titletext">
+              other
+            </div>
+            <div class="card__overviewtext">
+              電子工作やマイニング、ブログなど
+            </div>
+          </div>
+        </a>
+      </div>
+
+
+      <div class="card">
+        <a href="#contact">
+        <div class="card__imgframe"></div>
+        <div class="card__textbox">
+          <div class="card__titletext">
+            contact
+          </div>
+          <div class="card__overviewtext">
+            お問い合わせ
+          </div>
         </div>
+        </a>
+    </div>
+  </div>
 
-        <div class="card">
-            <div class="card__imgframe"></div>
-            <div class="card__textbox">
-              <div class="card__titletext">
-                タイトルがはいります。タイトルがはいります。
-              </div>
-              <div class="card__overviewtext">
-                概要がはいります。概要がはいります。概要がはいります。概要がはいります。
-              </div>
-            </div>
-        </div>
 
-        <div class="card">
-            <div class="card__imgframe"></div>
-            <div class="card__textbox">
-              <div class="card__titletext">
-                タイトルがはいります。タイトルがはいります。
-              </div>
-              <div class="card__overviewtext">
-                概要がはいります。概要がはいります。概要がはいります。概要がはいります。
-              </div>
-            </div>
+
+  <div class="category_card">
+    <br><br>
+    <h1 id="about">about</h1>
+    <p>tatehab(たては)について</p>
+  </div>
+  <div class="flex-container">
+    <div class="card" >
+        <div class="card__imgframe"
+        style="background-image: url(img/icon/tatehab.jpeg) "></div>
+        <div class="card__textbox">
+          <div class="card__titletext">
+            tatehabのご紹介
+          </div>
+          <div class="card__overviewtext">
+            こんにちは！
+          </div>
         </div>
     </div>
-</div>
+  </div>
 
-<div id="footer">
-<p>twitter:@tatehab</p>
+
+
+
+  <div class="category_card">
+    <br><br>
+    <h1 id="illustration">illustration</h1>
+    <p>趣味でイラストを描いています</p>
+  </div>
+  
+  <div class="flex-container">
+    <div class="card" >
+        <div class="card__imgframe"></div>
+        <div class="card__textbox">
+          <div class="card__titletext">
+            タイトルがはいります。タイトルがはいります。
+          </div>
+          <div class="card__overviewtext">
+            概要がはいります。概要がはいります。概要がはいります。概要がはいります。
+          </div>
+        </div>
+    </div>
+
+
+    <div class="card">
+        <div class="card__imgframe"></div>
+        <div class="card__textbox">
+          <div class="card__titletext">
+            タイトルがはいります。タイトルがはいります。
+          </div>
+          <div class="card__overviewtext">
+            概要がはいります。概要がはいります。概要がはいります。概要がはいります。
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="category_card">
+    <br><br>
+    <h1 id="download">download</h1>
+    <p>公開しているソフト・アプリ</p>
+  </div>
+  <div class="flex-container">
+    <div class="card" >
+        <div class="card__imgframe"></div>
+        <div class="card__textbox">
+          <div class="card__titletext">
+            タイトルがはいります。タイトルがはいります。
+          </div>
+          <div class="card__overviewtext">
+            概要がはいります。概要がはいります。概要がはいります。概要がはいります。
+          </div>
+        </div>
+    </div>
+  </div>
+
+
+
+  <div class="category_card">
+    <br><br>
+    <h1 id="other">other</h1>
+    <p>電子工作やマイニング、ブログなど</p>
+  </div>
+  <div class="flex-container">
+    <div class="card" >
+        <div class="card__imgframe"></div>
+        <div class="card__textbox">
+          <div class="card__titletext">
+            タイトルがはいります。タイトルがはいります。
+          </div>
+          <div class="card__overviewtext">
+            概要がはいります。概要がはいります。概要がはいります。概要がはいります。
+          </div>
+        </div>
+    </div>
+  </div>
+
+
+
+
+
+  <div class="category_card">
+    <br><br>
+    <h1 id="contact">contact</h1>
+    <p>お問い合わせ</p>
+  </div>
+  <div class="flex-container">
+    <div class="card" >
+        <div class="card__imgframe"></div>
+        <div class="card__textbox">
+          <div class="card__titletext">
+            タイトルがはいります。タイトルがはいります。
+          </div>
+          <div class="card__overviewtext">
+            概要がはいります。概要がはいります。概要がはいります。概要がはいります。
+          </div>
+        </div>
+    </div>
+  </div>
+
+</div>
+<br><br>
+</center>
+
+<div id="footer" class="footer_color1">
+  <h2>Follow Me!<h2>
+    <a href="https://twitter.com/tatehab"> 
+      <img style="width: 1.5em; height:1.5em;" src="img/icon/twitter.png">　
+    </a>
+    <a href="https://qiita.com/tatehab">
+      <img style="width: 1.5em; height:1.5em;" src="img/icon/favicon.png">　
+    </a>
+    <a href="mailto:tatehakonno@gmail.com">
+      <img style="width: 1.5em; height:1.5em;" src="img/icon/mail.png">
+    </a>
+
+</div>
+<div id="footer" class="footer_color2">
+  <h1>Tateha LAB</h1> 
+  <a href="#">Top</a>　/　<a href="#about">about</a>　/　<a href="#illustration">illustration</a>　/　<a href="#download">download</a>　/　<a href="#other">other</a>　/　<a href="#contact">contact</a>
+<p>Copyright(C) tatehab All Rights Researved.</p>
 </div>
 </body>
 </html>
