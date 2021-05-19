@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Tateha Lab</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes" />
+    <meta name="description" content="たてはのブログとポートフォリオ">
+
     <!--twitter対応-->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@tatehab" />
@@ -32,7 +34,7 @@
       $('#scrollValue').text(value);
     $('#particle').css('top', top - value*0.2);
     //$('#over_image').css('opacity', Math.min(Math.max((value - 100) * 0.002, 0 ), 0.8));
-    $('#over_image').css('opacity', Math.min(Math.max((value)/((bottom - top)*0.5), 0 ), 0.8));
+    $('#over_image').css('opacity', Math.min(Math.max((value)/((bottom - top)*0.5), 0 ), 0.4));
     
     });
     });

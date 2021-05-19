@@ -91,6 +91,12 @@ body{
 
 
 }
+#top p{
+  text-shadow: 2px 2px 1px #FFF,
+  -2px 2px 1px #FFF,
+  2px -2px 1px #FFF,
+  -2px -2px 1px #FFF;
+}
 .top_img{
     top:0px;
     width: 100%;
