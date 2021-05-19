@@ -59,6 +59,24 @@
       }, CHANGE_SPAN);
 
 
+
+
+  $(function(){
+    $('a[href^="#"]').click(function() {
+      // スクロールの速度
+      let speed = 400; // ミリ秒で記述
+      let href = $(this).attr("href");
+      let target = $(href == "#" || href == "" ? 'html' : href);
+      let position = target.offset().top;
+      $('body,html').animate({
+        scrollTop: position
+      }, speed, 'swing');
+      return false;
+    });
+
+  });
+
+
     </script>
 
 
@@ -103,13 +121,11 @@
 
 <center style="background-color: white;">
 <div id="main">
-  
   <div class="flex-container">
-
-
     <div class="card">
       <a href="#about">
-        <div class="card__imgframe"></div>
+        <div class="card__imgframe"
+        style="background-position: bottom;background-color: white;background-image: url(img/icon/about.png) "></div>
         <div class="card__textbox">
           <div class="card__titletext">
             about
@@ -124,8 +140,7 @@
       <div class="card">
         <a href="#illustration">
           <div class="card__imgframe"
-          style="background-image: url(img/top_img/PXL_20210411_041659430.jpg) ">
-        </div>
+          style="background-position: bottom;background-color: white;background-image: url(img/icon/illustration.png);"></div>
           <div class="card__textbox">
             <div class="card__titletext">
               illustration
@@ -141,7 +156,7 @@
       <div class="card">
         <a href="#download">
           <div class="card__imgframe"
-          style="background-image: url(img/top_img/PXL_20210411_041659430.jpg) "></div>
+          style="background-position: bottom;background-color: white;background-image: url(img/icon/download.png); "></div>          
           <div class="card__textbox">
             <div class="card__titletext">
               download
@@ -155,7 +170,8 @@
       
       <div class="card">
         <a href="#other">
-          <div class="card__imgframe"></div>
+          <div class="card__imgframe"
+          style="background-position: bottom;background-color: white;background-image: url(img/icon/other.png) "></div>  
           <div class="card__textbox">
             <div class="card__titletext">
               other
@@ -170,7 +186,8 @@
 
       <div class="card">
         <a href="#contact">
-        <div class="card__imgframe"></div>
+          <div class="card__imgframe"
+          style="background-position: bottom;background-color: white;background-image: url(img/icon/contact.png) "></div> 
         <div class="card__textbox">
           <div class="card__titletext">
             contact
